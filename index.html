@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Academy — Management Portal</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- LANGUAGE SWITCHER -->
+<div class="lang-float" id="lang-float">
+  <button class="lang-btn active" data-lang="en">EN</button>
+  <button class="lang-btn" data-lang="fr">FR</button>
+  <button class="lang-btn" data-lang="rw">RW</button>
+</div>
+
+<!-- SIDEBAR NAV -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <img src="c:\Users\PC\Pictures\logonow.png" class="imagelogo" alt="">
+    </div>
+  </div>
+
+  <nav class="sidebar-nav">
+    <div class="nav-group">
+      <span class="nav-label" data-i18n="overview">Overview</span>
+      <a href="#" class="nav-item active" data-page="dashboard">
+        <i>⊞</i><span data-i18n="dashboard">Dashboard</span>
+      </a>
+    </div>
+    <div class="nav-group">
+      <span class="nav-label" data-i18n="students">Students</span>
+      <a href="#" class="nav-item" data-page="enroll">
+        <i>＋</i><span data-i18n="enroll">Enroll Student</span>
+      </a>
+      <a href="#" class="nav-item" data-page="fees">
+        <i>₣</i><span data-i18n="fees">School Fees</span>
+      </a>
+      <a href="#" class="nav-item" data-page="attendance">
+        <i>✓</i><span data-i18n="attendance">Attendance</span>
+      </a>
+      <a href="#" class="nav-item" data-page="reports">
+        <i>▤</i><span data-i18n="reports">Reports</span>
+      </a>
+    </div>
+    <div class="nav-group">
+      <span class="nav-label" data-i18n="staff">Staff</span>
+      <a href="#" class="nav-item" data-page="jobs">
+        <i>◈</i><span data-i18n="jobs">Job Postings</span>
+      </a>
+      <a href="#" class="nav-item" data-page="teachers">
+        <i>◉</i><span data-i18n="teachers">Teachers List</span>
+      </a>
+    </div>
+    <div class="nav-group">
+      <span class="nav-label" data-i18n="resources">Resources</span>
+      <a href="#" class="nav-item" data-page="library">
+        <i>◫</i><span data-i18n="library">Library</span>
+      </a>
+    </div>
+    <div class="nav-group">
+      <span class="nav-label" data-i18n="system">System</span>
+      <a href="#" class="nav-item" data-page="admin">
+        <i>⚙</i><span data-i18n="admin">Admin Control</span>
+      </a>
+      <a href="#" class="nav-item" data-page="settings">
+        <i>◎</i><span data-i18n="settings">Settings</span>
+      </a>
+    </div>
+  </nav>
+
+  <div class="sidebar-footer">
+    <div class="admin-card">
+      <div class="admin-avatar" id="sidebar-avatar">A</div>
+      <div style="flex:1;min-width:0">
+        <div class="admin-name" id="sidebar-name">Admin</div>
+        <div class="admin-role" id="sidebar-role">Super Admin</div>
+      </div>
+      <button class="logout-btn" id="btn-logout" title="Logout">⏻</button>
+    </div>
+    <div id="role-permission-badge" style="margin-top:10px;padding:6px 12px;border-radius:20px;font-size:0.72rem;font-weight:600;text-align:center;letter-spacing:0.3px"></div>
+  </div>
+</aside>
+
+<!-- MOBILE HEADER -->
+<header class="mobile-header">
+  <button class="hamburger" id="hamburger">☰</button>
+  <span class="mobile-logo">Smart ✦</span>
+  <button class="notif-btn" id="notif-btn">🔔 <span class="notif-badge" id="notif-badge">3</span></button>
+</header>
+
+<!-- MAIN CONTENT -->
+<main class="main" id="main">
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="topbar-left">
+      <h1 class="page-title" id="page-title" data-i18n="dashboardTitle">Dashboard Overview</h1>
+      <div class="breadcrumb" id="breadcrumb">Home › Dashboard</div>
+    </div>
+    <div class="topbar-right">
+      <div class="search-box">
+        <span>⊘</span>
+        <input type="text" placeholder="Search students, teachers..." data-i18n-placeholder="searchPlaceholder">
+      </div>
+      <div class="topbar-user" id="topbar-user">
+        <div class="topbar-avatar" id="topbar-avatar">A</div>
+        <div class="topbar-uinfo">
+          <div class="topbar-uname" id="topbar-uname">Admin</div>
+          <div class="topbar-urole" id="topbar-urole">Super Admin</div>
+        </div>
+      </div>
+      <button class="notif-btn desktop" id="notif-btn-desk">🔔 <span class="notif-badge">3</span></button>
+    </div>
+  </div>
+
+  <!-- HERO SLIDESHOW (only on dashboard) -->
+  <div class="hero-slides-wrap" id="hero-slides-wrap">
+    <div class="hero-slides" id="hero-slides">
+      <div class="hero-slide active" style="background: linear-gradient(135deg, #c4cddb 0%, #bdc7d1 100%);">
+        <div class="slide-content">
+          <span class="slide-tag" data-i18n="welcome">Welcome Back</span>
+          <h2 data-i18n="slide1Title">Manage Your<br><em>Academy Smartly</em></h2>
+          <p data-i18n="slide1Desc">Enroll students, track attendance, manage fees — all in one place</p>
+          <button class="slide-btn" data-page="enroll" data-i18n="enrollNow">Enroll Student Now</button>
+        </div>
+        <div class="slide-art">🎓</div>
+      </div>
+      <div class="hero-slide" style="background: linear-gradient(135deg, #b7aec2 0%, #a99eb9 100%);">
+        <div class="slide-content">
+          <span class="slide-tag" data-i18n="staffMgmt">Staff Management</span>
+          <h2 data-i18n="slide2Title">Hire the Best<br><em>Teachers Today</em></h2>
+          <p data-i18n="slide2Desc">Post jobs, review applications and build your dream faculty</p>
+          <button class="slide-btn" data-page="jobs" data-i18n="postJob">Post a Job</button>
+        </div>
+        <div class="slide-art">👩‍🏫</div>
+      </div>
+      <div class="hero-slide" style="background: linear-gradient(135deg, #90bba4 0%, #b2e7ca 100%);">
+        <div class="slide-content">
+          <span class="slide-tag" data-i18n="feesMgmt">Fees Management</span>
+          <h2 data-i18n="slide3Title">Track Payments<br><em>With Ease</em></h2>
+          <p data-i18n="slide3Desc">Monitor school fees, send reminders, generate receipts instantly</p>
+          <button class="slide-btn" data-page="fees" data-i18n="viewFees">View Fees</button>
+        </div>
+        <div class="slide-art">💰</div>
+      </div>
+    </div>
+    <button class="slide-arrow left" id="slide-prev">‹</button>
+    <button class="slide-arrow right" id="slide-next">›</button>
+    <div class="slide-dots" id="slide-dots">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+  </div>
+
+  <!-- MARQUEE -->
+  <div class="marquee-wrap" id="marquee-wrap">
+    <div class="marquee-track">
+      <span data-i18n="marqueeText">Students Enrolled: 342 ✦ Teachers Active: 28 ✦ Fees Collected: RWF 12.4M ✦ Books in Library: 1,240 ✦ Attendance Today: 94% ✦ Students Enrolled: 342 ✦ Teachers Active: 28 ✦ Fees Collected: RWF 12.4M ✦ Books in Library: 1,240 ✦ Attendance Today: 94% ✦</span>
+    </div>
+  </div>
+
+  <!-- ===== PAGES ===== -->
+
+  <!-- DASHBOARD PAGE -->
+  <div class="page active" id="page-dashboard">
+    <div class="stats-grid">
+      <div class="stat-card" style="--accent:#3b82f6">
+        <div class="stat-icon">🎓</div>
+        <div class="stat-info">
+          <div class="stat-val" id="stat-students">342</div>
+          <div class="stat-label" data-i18n="totalStudents">Total Students</div>
+        </div>
+        <div class="stat-trend up">+12 <span data-i18n="thisWeek">this week</span></div>
+      </div>
+      <div class="stat-card" style="--accent:#10b981">
+        <div class="stat-icon">👩‍🏫</div>
+        <div class="stat-info">
+          <div class="stat-val" id="stat-teachers">28</div>
+          <div class="stat-label" data-i18n="activeTeachers">Active Teachers</div>
+        </div>
+        <div class="stat-trend up">+2 <span data-i18n="thisMonth">this month</span></div>
+      </div>
+      <div class="stat-card" style="--accent:#f59e0b">
+        <div class="stat-icon">💰</div>
+        <div class="stat-info">
+          <div class="stat-val">12.4M</div>
+          <div class="stat-label" data-i18n="feesCollected">Fees Collected (RWF)</div>
+        </div>
+        <div class="stat-trend up">+8% <span data-i18n="vsLastMonth">vs last month</span></div>
+      </div>
+      <div class="stat-card" style="--accent:#ef4444">
+        <div class="stat-icon">✓</div>
+        <div class="stat-info">
+          <div class="stat-val">94%</div>
+          <div class="stat-label" data-i18n="attendanceToday">Attendance Today</div>
+        </div>
+        <div class="stat-trend down">-2% <span data-i18n="vsYesterday">vs yesterday</span></div>
+      </div>
+      <div class="stat-card" style="--accent:#8b5cf6">
+        <div class="stat-icon">◫</div>
+        <div class="stat-info">
+          <div class="stat-val">1,240</div>
+          <div class="stat-label" data-i18n="libraryBooks">Library Books</div>
+        </div>
+        <div class="stat-trend up">+45 <span data-i18n="new">new</span></div>
+      </div>
+      <div class="stat-card" style="--accent:#ec4899">
+        <div class="stat-icon">◈</div>
+        <div class="stat-info">
+          <div class="stat-val">7</div>
+          <div class="stat-label" data-i18n="pendingApps">Pending Applications</div>
+        </div>
+        <div class="stat-trend up" data-i18n="reviewNow">Review Now</div>
+      </div>
+    </div>
+
+    <div class="dash-grid">
+      <div class="card">
+        <div class="card-header">
+          <h3 data-i18n="recentEnrollments">Recent Enrollments</h3>
+          <button class="card-action" data-page="enroll" data-i18n="viewAll">View All</button>
+        </div>
+        <div class="mini-list" id="recent-students"></div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <h3 data-i18n="pendingFees">Pending Fees</h3>
+          <button class="card-action" data-page="fees" data-i18n="viewAll">View All</button>
+        </div>
+        <div class="mini-list" id="pending-fees-list"></div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <h3 data-i18n="jobApplications">Job Applications</h3>
+          <button class="card-action" data-page="jobs" data-i18n="viewAll">View All</button>
+        </div>
+        <div class="mini-list" id="job-apps-list"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ENROLL STUDENT PAGE -->
+  <div class="page" id="page-enroll">
+    <div class="page-hero" style="background: linear-gradient(135deg, #0a1628, #1a3a5c)">
+      <h2>🎓 <span data-i18n="enrollStudent">Enroll a New Student</span></h2>
+      <p data-i18n="enrollDesc">Student will be automatically added to Attendance, Fees & Reports</p>
+    </div>
+    <div class="form-card">
+      <div class="form-grid">
+        <div class="form-group">
+          <label data-i18n="firstName">First Name</label>
+          <input type="text" id="enroll-fname" placeholder="e.g. Jean" />
+        </div>
+        <div class="form-group">
+          <label data-i18n="lastName">Last Name</label>
+          <input type="text" id="enroll-lname" placeholder="e.g. Uwimana" />
+        </div>
+        <div class="form-group">
+          <label data-i18n="dateOfBirth">Date of Birth</label>
+          <input type="date" id="enroll-dob" />
+        </div>
+        <div class="form-group">
+          <label data-i18n="gender">Gender</label>
+          <select id="enroll-gender">
+            <option value="">-- Select --</option>
+            <option data-i18n="male">Male</option>
+            <option data-i18n="female">Female</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label data-i18n="classLevel">Class / Level</label>
+          <select id="enroll-class">
+            <option>Senior 1</option><option>Senior 2</option><option>Senior 3</option>
+            <option>Senior 4</option><option>Senior 5</option><option>Senior 6</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label data-i18n="parentName">Parent/Guardian Name</label>
+          <input type="text" id="enroll-parent" placeholder="Parent full name" />
+        </div>
+        <div class="form-group">
+          <label data-i18n="phone">Phone Number</label>
+          <input type="tel" id="enroll-phone" placeholder="+250 7xx xxx xxx" />
+        </div>
+        <div class="form-group">
+          <label data-i18n="feeAmount">Term Fee (RWF)</label>
+          <input type="number" id="enroll-fee" placeholder="e.g. 150000" />
+        </div>
+      </div>
+      <div class="form-actions">
+        <button class="btn-primary" id="btn-enroll" data-i18n="enrollStudent">Enroll Student</button>
+        <button class="btn-secondary" id="btn-clear-enroll" data-i18n="clearForm">Clear Form</button>
+      </div>
+      <div class="auto-badge" data-i18n="autoAddNote">
+        ⚡ Auto-added to: Attendance Register · Fee Records · Report System
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:32px">
+      <div class="card-header">
+        <h3 data-i18n="allStudents">All Students</h3>
+        <input type="text" class="inline-search" id="student-search" placeholder="Search..." />
+      </div>
+      <div class="table-wrap">
+        <table class="data-table" id="students-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th data-i18n="name">Name</th>
+              <th data-i18n="classLevel">Class</th>
+              <th data-i18n="parentName">Parent</th>
+              <th data-i18n="phone">Phone</th>
+              <th data-i18n="feeStatus">Fee Status</th>
+              <th data-i18n="actions">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="students-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- FEES PAGE -->
+  <div class="page" id="page-fees">
+    <div class="page-hero" style="background: linear-gradient(135deg, #1a0a2e, #4c1d95)">
+      <h2>💰 <span data-i18n="schoolFees">School Fees Management</span></h2>
+      <p data-i18n="feesDesc">Track payments, send reminders, generate receipts</p>
+    </div>
+    <div class="fees-summary">
+      <div class="fee-stat">
+        <div class="fee-val" id="fees-total">RWF 0</div>
+        <div class="fee-lbl" data-i18n="totalExpected">Total Expected</div>
+      </div>
+      <div class="fee-stat">
+        <div class="fee-val green" id="fees-paid">RWF 0</div>
+        <div class="fee-lbl" data-i18n="totalPaid">Total Paid</div>
+      </div>
+      <div class="fee-stat">
+        <div class="fee-val red" id="fees-pending">RWF 0</div>
+        <div class="fee-lbl" data-i18n="totalPending">Total Pending</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <h3 data-i18n="feeRecords">Fee Records</h3>
+        <div class="filter-group">
+          <select id="fee-filter">
+            <option value="all" data-i18n="allStatus">All Status</option>
+            <option value="paid" data-i18n="paid">Paid</option>
+            <option value="pending" data-i18n="pending">Pending</option>
+            <option value="partial" data-i18n="partial">Partial</option>
+          </select>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th data-i18n="student">Student</th>
+              <th data-i18n="classLevel">Class</th>
+              <th data-i18n="feeAmount">Amount (RWF)</th>
+              <th data-i18n="paid">Paid</th>
+              <th data-i18n="balance">Balance</th>
+              <th data-i18n="status">Status</th>
+              <th data-i18n="actions">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="fees-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Payment Modal -->
+    <div class="modal" id="pay-modal">
+      <div class="modal-box">
+        <button class="modal-close" id="pay-modal-close">✕</button>
+        <h3 data-i18n="recordPayment">Record Payment</h3>
+        <p id="pay-student-name" style="color:var(--accent-blue);font-weight:600"></p>
+        <div class="form-group" style="margin-top:16px">
+          <label data-i18n="amountPaid">Amount Paid (RWF)</label>
+          <input type="number" id="pay-amount" placeholder="Enter amount" />
+        </div>
+        <div class="form-group">
+          <label data-i18n="paymentDate">Payment Date</label>
+          <input type="date" id="pay-date" />
+        </div>
+        <div class="form-actions">
+          <button class="btn-primary" id="btn-confirm-pay" data-i18n="confirmPayment">Confirm Payment</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ATTENDANCE PAGE -->
+  <div class="page" id="page-attendance">
+    <div class="page-hero" style="background: linear-gradient(135deg, #064e3b, #065f46)">
+      <h2>✅ <span data-i18n="attendance">Attendance Register</span></h2>
+      <p data-i18n="attendanceDesc">Mark daily attendance for enrolled students</p>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <h3 data-i18n="dailyAttendance">Daily Attendance</h3>
+          <input type="date" id="attend-date" style="margin-top:8px;padding:6px 12px;border-radius:8px;border:1px solid var(--border);background:var(--bg-card);color:var(--text);">
+        </div>
+        <div class="attend-summary">
+          <span class="badge green" id="attend-present">Present: 0</span>
+          <span class="badge red" id="attend-absent">Absent: 0</span>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th data-i18n="student">Student</th>
+              <th data-i18n="classLevel">Class</th>
+              <th data-i18n="present">Present</th>
+              <th data-i18n="absent">Absent</th>
+              <th data-i18n="note">Note</th>
+            </tr>
+          </thead>
+          <tbody id="attendance-tbody"></tbody>
+        </table>
+      </div>
+      <div class="form-actions" style="margin-top:20px">
+        <button class="btn-primary" id="btn-save-attendance" data-i18n="saveAttendance">Save Attendance</button>
+        <button class="btn-secondary" id="btn-all-present" data-i18n="markAllPresent">Mark All Present</button>
+      </div>
+      <div id="attend-role-notice" style="display:none;margin-top:14px;padding:10px 16px;background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.3);border-radius:10px;font-size:0.83rem;color:#f59e0b">
+        👁 View-only mode — Only Admins and Teachers can edit attendance.
+      </div>
+    </div>
+  </div>
+
+  <!-- REPORTS PAGE -->
+  <div class="page" id="page-reports">
+    <div class="page-hero" style="background: linear-gradient(135deg, #1e1b4b, #312e81)">
+      <h2>📊 <span data-i18n="reports">Reports & Analytics</span></h2>
+      <p data-i18n="reportsDesc">Generate detailed academic and financial reports</p>
+    </div>
+    <div class="report-grid">
+      <div class="report-card" id="rpt-student">
+        <div class="rpt-icon">🎓</div>
+        <div class="rpt-title" data-i18n="studentReport">Student Report</div>
+        <div class="rpt-desc" data-i18n="studentReportDesc">Full list of enrolled students with details</div>
+        <button class="btn-primary" data-rpt="students" data-i18n="generate">Generate</button>
+      </div>
+      <div class="report-card" id="rpt-fees">
+        <div class="rpt-icon">💰</div>
+        <div class="rpt-title" data-i18n="feesReport">Fees Report</div>
+        <div class="rpt-desc" data-i18n="feesReportDesc">Payment summary and outstanding balances</div>
+        <button class="btn-primary" data-rpt="fees" data-i18n="generate">Generate</button>
+      </div>
+      <div class="report-card" id="rpt-attend">
+        <div class="rpt-icon">✅</div>
+        <div class="rpt-title" data-i18n="attendanceReport">Attendance Report</div>
+        <div class="rpt-desc" data-i18n="attendanceReportDesc">Weekly and monthly attendance analysis</div>
+        <button class="btn-primary" data-rpt="attendance" data-i18n="generate">Generate</button>
+      </div>
+      <div class="report-card" id="rpt-teacher">
+        <div class="rpt-icon">👩‍🏫</div>
+        <div class="rpt-title" data-i18n="teacherReport">Teacher Report</div>
+        <div class="rpt-desc" data-i18n="teacherReportDesc">Staff list, subjects and performance</div>
+        <button class="btn-primary" data-rpt="teachers" data-i18n="generate">Generate</button>
+      </div>
+    </div>
+    <div class="card" id="report-output" style="display:none;margin-top:28px">
+      <div class="card-header">
+        <h3 id="report-title">Report</h3>
+        <button class="btn-secondary" id="btn-print" data-i18n="print">🖨 Print</button>
+      </div>
+      <div id="report-content"></div>
+    </div>
+  </div>
+
+  <!-- JOBS PAGE -->
+  <div class="page" id="page-jobs">
+    <div class="page-hero" style="background: linear-gradient(135deg, #431407, #9a3412)">
+      <h2>💼 <span data-i18n="jobPostings">Job Postings & Applications</span></h2>
+      <p data-i18n="jobsDesc">Post teaching positions and review applicants</p>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h3 data-i18n="postNewJob">Post New Job</h3>
+      </div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label data-i18n="jobTitle">Job Title</label>
+          <input type="text" id="job-title" placeholder="e.g. Mathematics Teacher" />
+        </div>
+        <div class="form-group">
+          <label data-i18n="subject">Subject</label>
+          <input type="text" id="job-subject" placeholder="e.g. Mathematics, Physics..." />
+        </div>
+        <div class="form-group">
+          <label data-i18n="deadline">Deadline</label>
+          <input type="date" id="job-deadline" />
+        </div>
+        <div class="form-group">
+          <label data-i18n="salary">Salary (RWF)</label>
+          <input type="number" id="job-salary" placeholder="e.g. 200000" />
+        </div>
+      </div>
+      <button class="btn-primary" id="btn-post-job" data-i18n="postJob">Post Job</button>
+    </div>
+
+    <div class="card" style="margin-top:24px">
+      <div class="card-header">
+        <h3>📋 Active Job Postings</h3>
+      </div>
+      <div id="job-postings-list" style="padding:8px 0"></div>
+    </div>
+
+    <div class="card" style="margin-top:24px">
+      <div class="card-header">
+        <h3 data-i18n="applications">Applications</h3>
+        <span class="badge blue" id="apps-count">0 pending</span>
+      </div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th data-i18n="applicantName">Applicant</th>
+              <th data-i18n="applyingFor">Applying For</th>
+              <th data-i18n="qualification">Qualification</th>
+              <th data-i18n="phone">Phone</th>
+              <th data-i18n="status">Status</th>
+              <th data-i18n="actions">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="jobs-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Apply Form (simulate applicant) -->
+    <div class="card" style="margin-top:24px">
+      <div class="card-header">
+        <h3 data-i18n="simulateApplication">Simulate Application</h3>
+      </div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label data-i18n="applicantName">Applicant Name</label>
+          <input type="text" id="app-name" placeholder="Full name" />
+        </div>
+        <div class="form-group">
+          <label data-i18n="applyingFor">Applying For</label>
+          <select id="app-job-select"><option>No jobs posted yet</option></select>
+        </div>
+        <div class="form-group">
+          <label data-i18n="qualification">Qualification</label>
+          <input type="text" id="app-qual" placeholder="e.g. B.Ed Mathematics" />
+        </div>
+        <div class="form-group">
+          <label data-i18n="phone">Phone</label>
+          <input type="tel" id="app-phone" placeholder="+250 7xx xxx xxx" />
+        </div>
+      </div>
+      <button class="btn-secondary" id="btn-apply" data-i18n="submitApplication">Submit Application</button>
+    </div>
+  </div>
+
+  <!-- TEACHERS LIST PAGE -->
+  <div class="page" id="page-teachers">
+    <div class="page-hero" style="background: linear-gradient(135deg, #134e4a, #0f766e)">
+      <h2>👩‍🏫 <span data-i18n="teachersList">Teachers List</span></h2>
+      <p data-i18n="teachersDesc">All hired teachers — automatically populated from approved applications</p>
+    </div>
+    <div class="stats-row">
+      <div class="mini-stat"><span id="t-total">0</span> <span data-i18n="total">Total</span></div>
+      <div class="mini-stat"><span id="t-active">0</span> <span data-i18n="active">Active</span></div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <h3 data-i18n="allTeachers">All Teachers</h3>
+        <input type="text" class="inline-search" id="teacher-search" placeholder="Search..." />
+      </div>
+      <div class="teacher-grid" id="teachers-grid"></div>
+    </div>
+  </div>
+
+  <!-- LIBRARY PAGE -->
+  <div class="page" id="page-library">
+    <div class="page-hero" style="background: linear-gradient(135deg, #1e3a5f, #1e40af)">
+      <h2>📚 <span data-i18n="library">Library</span></h2>
+      <p data-i18n="libraryDesc">Manage books, track borrowing and returns</p>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <h3 data-i18n="addBook">Add New Book</h3>
+      </div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label data-i18n="bookTitle">Book Title</label>
+          <input type="text" id="book-title" placeholder="e.g. Advanced Mathematics" />
+        </div>
+        <div class="form-group">
+          <label data-i18n="author">Author</label>
+          <input type="text" id="book-author" placeholder="Author name" />
+        </div>
+        <div class="form-group">
+          <label data-i18n="category">Category</label>
+          <select id="book-category">
+            <option>Mathematics</option><option>Science</option><option>Literature</option>
+            <option>History</option><option>Geography</option><option>Languages</option><option>Reference</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label data-i18n="copies">Copies</label>
+          <input type="number" id="book-copies" placeholder="e.g. 5" value="1" min="1" />
+        </div>
+      </div>
+      <button class="btn-primary" id="btn-add-book" data-i18n="addBook">Add Book</button>
+    </div>
+    <div class="card" style="margin-top:24px">
+      <div class="card-header">
+        <h3 data-i18n="bookCatalog">Book Catalog</h3>
+        <input type="text" class="inline-search" id="book-search" placeholder="Search books..." />
+      </div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th data-i18n="bookTitle">Title</th>
+              <th data-i18n="author">Author</th>
+              <th data-i18n="category">Category</th>
+              <th data-i18n="copies">Copies</th>
+              <th data-i18n="available">Available</th>
+              <th data-i18n="actions">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="library-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADMIN PAGE -->
+  <div class="page" id="page-admin">
+    <div class="page-hero" style="background: linear-gradient(135deg, #1c0533, #4c0080)">
+      <h2>⚙ <span data-i18n="adminControl">Admin Control Center</span></h2>
+      <p data-i18n="adminDesc">Manage users, permissions and system data</p>
+    </div>
+    <div class="admin-grid">
+      <div class="card">
+        <h3 style="margin-bottom:16px" data-i18n="systemStats">System Statistics</h3>
+        <div class="admin-stats" id="admin-stats"></div>
+      </div>
+      <div class="card">
+        <h3 style="margin-bottom:16px" data-i18n="quickActions">Quick Actions</h3>
+        <div class="action-btns">
+          <button class="action-btn" id="btn-export-students" data-i18n="exportStudents">📥 Export Students</button>
+          <button class="action-btn" id="btn-export-fees" data-i18n="exportFees">📥 Export Fees</button>
+          <button class="action-btn danger" id="btn-reset" data-i18n="resetData">🗑 Reset All Data</button>
+        </div>
+      </div>
+      <div class="card">
+        <h3 style="margin-bottom:16px" data-i18n="activityLog">Activity Log</h3>
+        <div class="log-list" id="log-list"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SETTINGS PAGE -->
+  <div class="page" id="page-settings">
+    <div class="page-hero" style="background: linear-gradient(135deg, #111827, #374151)">
+      <h2>◎ <span data-i18n="settings">Settings</span></h2>
+      <p data-i18n="settingsDesc">Customize the portal to your needs</p>
+    </div>
+    <div class="settings-grid">
+      <div class="card">
+        <h3 data-i18n="appearance">Appearance</h3>
+        <div class="setting-item">
+          <label data-i18n="darkMode">Dark Mode</label>
+          <label class="toggle">
+            <input type="checkbox" id="dark-mode-toggle">
+            <span class="slider"></span>
+          </label>
+        </div>
+        <div class="setting-item">
+          <label data-i18n="accentColor">Accent Color</label>
+          <div class="color-options">
+            <button class="color-swatch active" style="background:#3b82f6" data-color="blue"></button>
+            <button class="color-swatch" style="background:#10b981" data-color="green"></button>
+            <button class="color-swatch" style="background:#f59e0b" data-color="amber"></button>
+            <button class="color-swatch" style="background:#ef4444" data-color="red"></button>
+            <button class="color-swatch" style="background:#8b5cf6" data-color="purple"></button>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <h3 data-i18n="schoolInfo">School Information</h3>
+        <div class="form-group">
+          <label data-i18n="schoolName">School Name</label>
+          <input type="text" id="school-name" value="EduNova Academy" />
+        </div>
+        <div class="form-group">
+          <label data-i18n="schoolAddress">Address</label>
+          <input type="text" id="school-address" placeholder="e.g. KG 15 Ave, Kigali" />
+        </div>
+        <div class="form-group">
+          <label data-i18n="schoolPhone">Phone</label>
+          <input type="tel" id="school-phone" placeholder="+250 7xx xxx xxx" />
+        </div>
+        <div class="form-group">
+          <label data-i18n="termName">Current Term</label>
+          <select id="term-name">
+            <option>Term 1 (Jan – Apr)</option>
+            <option>Term 2 (May – Aug)</option>
+            <option>Term 3 (Sep – Dec)</option>
+          </select>
+        </div>
+        <button class="btn-primary" id="btn-save-settings" data-i18n="saveSettings">Save Settings</button>
+      </div>
+      <div class="card">
+        <h3 data-i18n="language">Language</h3>
+        <div class="lang-options">
+          <button class="lang-option active" data-lang="en">🇬🇧 English</button>
+          <button class="lang-option" data-lang="fr">🇫🇷 Français</button>
+          <button class="lang-option" data-lang="rw">🇷🇼 Kinyarwanda</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- OVERLAY -->
+<div class="overlay" id="overlay"></div>
+
+<!-- LOGOUT CONFIRM MODAL -->
+<div class="logout-modal" id="logout-modal">
+  <div class="logout-box">
+    <div class="logout-icon">⏻</div>
+    <h3>Sign Out?</h3>
+    <p>You'll be returned to the login page. Any unsaved data will remain.</p>
+    <div class="logout-actions">
+      <button class="btn-logout-confirm no" id="btn-logout-cancel">Cancel</button>
+      <button class="btn-logout-confirm yes" id="btn-logout-yes">Yes, Sign Out</button>
+    </div>
+  </div>
+</div>
+
+<!-- EDIT STUDENT MODAL -->
+<div class="modal" id="edit-student-modal">
+  <div class="modal-box" style="max-width:600px">
+    <button class="modal-close" id="edit-student-modal-close">✕</button>
+    <h3>✏️ Edit Student</h3>
+    <div class="form-grid" style="margin-top:20px">
+      <div class="form-group">
+        <label>First Name</label>
+        <input type="text" id="edit-s-fname" placeholder="First name" />
+      </div>
+      <div class="form-group">
+        <label>Last Name</label>
+        <input type="text" id="edit-s-lname" placeholder="Last name" />
+      </div>
+      <div class="form-group">
+        <label>Date of Birth</label>
+        <input type="date" id="edit-s-dob" />
+      </div>
+      <div class="form-group">
+        <label>Gender</label>
+        <select id="edit-s-gender">
+          <option value="">-- Select --</option>
+          <option>Male</option>
+          <option>Female</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Class / Level</label>
+        <select id="edit-s-class">
+          <option>Senior 1</option><option>Senior 2</option><option>Senior 3</option>
+          <option>Senior 4</option><option>Senior 5</option><option>Senior 6</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Parent/Guardian Name</label>
+        <input type="text" id="edit-s-parent" placeholder="Parent full name" />
+      </div>
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input type="tel" id="edit-s-phone" placeholder="+250 7xx xxx xxx" />
+      </div>
+      <div class="form-group">
+        <label>Term Fee (RWF)</label>
+        <input type="number" id="edit-s-fee" placeholder="e.g. 150000" />
+      </div>
+    </div>
+    <div class="form-actions" style="margin-top:20px">
+      <button class="btn-primary" id="btn-save-edit-student">💾 Save Changes</button>
+      <button class="btn-secondary" onclick="document.getElementById('edit-student-modal').classList.remove('open')">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- EDIT TEACHER MODAL -->
+<div class="modal" id="edit-teacher-modal">
+  <div class="modal-box" style="max-width:500px">
+    <button class="modal-close" id="edit-teacher-modal-close">✕</button>
+    <h3>✏️ Edit Teacher</h3>
+    <div class="form-grid" style="margin-top:20px">
+      <div class="form-group">
+        <label>First Name</label>
+        <input type="text" id="edit-t-fname" placeholder="First name" />
+      </div>
+      <div class="form-group">
+        <label>Last Name</label>
+        <input type="text" id="edit-t-lname" placeholder="Last name" />
+      </div>
+      <div class="form-group">
+        <label>Subject</label>
+        <input type="text" id="edit-t-subject" placeholder="e.g. Mathematics" />
+      </div>
+      <div class="form-group">
+        <label>Phone</label>
+        <input type="tel" id="edit-t-phone" placeholder="+250 7xx xxx xxx" />
+      </div>
+      <div class="form-group">
+        <label>Qualification</label>
+        <input type="text" id="edit-t-qual" placeholder="e.g. B.Ed Mathematics" />
+      </div>
+      <div class="form-group">
+        <label>Status</label>
+        <select id="edit-t-status">
+          <option>Active</option>
+          <option>Inactive</option>
+          <option>On Leave</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-actions" style="margin-top:20px">
+      <button class="btn-primary" id="btn-save-edit-teacher">💾 Save Changes</button>
+      <button class="btn-secondary" onclick="document.getElementById('edit-teacher-modal').classList.remove('open')">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- EDIT BOOK MODAL -->
+<div class="modal" id="edit-book-modal">
+  <div class="modal-box" style="max-width:460px">
+    <button class="modal-close" id="edit-book-modal-close">✕</button>
+    <h3>✏️ Edit Book</h3>
+    <div class="form-grid" style="margin-top:20px">
+      <div class="form-group" style="grid-column:1/-1">
+        <label>Book Title</label>
+        <input type="text" id="edit-b-title" placeholder="Book title" />
+      </div>
+      <div class="form-group">
+        <label>Author</label>
+        <input type="text" id="edit-b-author" placeholder="Author name" />
+      </div>
+      <div class="form-group">
+        <label>Category</label>
+        <select id="edit-b-cat">
+          <option>Mathematics</option><option>Science</option><option>Literature</option>
+          <option>History</option><option>Geography</option><option>Languages</option><option>Reference</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Total Copies</label>
+        <input type="number" id="edit-b-copies" min="1" />
+      </div>
+    </div>
+    <div class="form-actions" style="margin-top:20px">
+      <button class="btn-primary" id="btn-save-edit-book">💾 Save Changes</button>
+      <button class="btn-secondary" onclick="document.getElementById('edit-book-modal').classList.remove('open')">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- ACTION BUTTON STYLES -->
+<style>
+.btn-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 11px;
+  border-radius: 8px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+}
+.btn-action.edit {
+  background: rgba(59,130,246,0.12);
+  color: #3b82f6;
+  border: 1px solid rgba(59,130,246,0.3);
+}
+.btn-action.edit:hover {
+  background: rgba(59,130,246,0.22);
+}
+.btn-action.delete {
+  background: rgba(239,68,68,0.1);
+  color: #ef4444;
+  border: 1px solid rgba(239,68,68,0.3);
+  margin-left: 4px;
+}
+.btn-action.delete:hover {
+  background: rgba(239,68,68,0.22);
+}
+.action-cell {
+  white-space: nowrap;
+}
+.job-posting-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  margin-bottom: 8px;
+  background: var(--bg-card);
+  gap: 12px;
+}
+.job-posting-info {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  flex: 1;
+}
+</style>
+
+<!-- SESSION & AUTH SCRIPT (must run before app.js) -->
+<script>
+(function() {
+  function getSession() {
+    try { return JSON.parse(localStorage.getItem('edunova_session')); } catch(e){ return null; }
+  }
+  const session = getSession();
+  if (!session) { window.location.replace('auth.html'); return; }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const avEl = document.getElementById('sidebar-avatar');
+    const nmEl = document.getElementById('sidebar-name');
+    const rlEl = document.getElementById('sidebar-role');
+    if (avEl) avEl.textContent = session.avatar || session.name[0].toUpperCase();
+    if (nmEl) nmEl.textContent = session.name;
+    if (rlEl) rlEl.textContent = session.role || 'Admin';
+
+    const tav = document.getElementById('topbar-avatar');
+    const tnm = document.getElementById('topbar-uname');
+    const trl = document.getElementById('topbar-urole');
+    if (tav) tav.textContent = session.avatar || session.name[0].toUpperCase();
+    if (tnm) tnm.textContent = session.name;
+    if (trl) trl.textContent = session.role || 'Admin';
+
+    document.getElementById('btn-logout')?.addEventListener('click', function() {
+      document.getElementById('logout-modal').classList.add('open');
+    });
+    document.getElementById('btn-logout-cancel')?.addEventListener('click', function() {
+      document.getElementById('logout-modal').classList.remove('open');
+    });
+    document.getElementById('btn-logout-yes')?.addEventListener('click', function() {
+      localStorage.removeItem('edunova_session');
+      window.location.replace('auth.html');
+    });
+  });
+})();
+</script>
+
+<script src="app.js"></script>
+</body>
+</html>
