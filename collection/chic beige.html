@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Detail - Chic Bomber Jacket</title>
+    <style>
+        :root {
+            --primary-black: #1a1a1a;
+            --accent-color: #b5836a; 
+            --light-gray: #f4f4f4;
+            --border: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #fff;
+            color: var(--primary-black);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            padding-top: 40px;
+        }
+
+        /* Image Section */
+        .product-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+
+        /* Details Section */
+        .product-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .category {
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 2px;
+            color: #888;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin: 0 0 15px 0;
+            font-weight: 500;
+        }
+
+        .price {
+            font-size: 24px;
+            font-weight: 300;
+            margin-bottom: 30px;
+            color: var(--accent-color);
+        }
+
+        .description {
+            line-height: 1.6;
+            color: #444;
+            margin-bottom: 30px;
+            border-top: 1px solid var(--border);
+            padding-top: 20px;
+        }
+        .selector-label {
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .size-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .size-option {
+            border: 1px solid var(--border);
+            padding: 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .size-option:hover {
+            border-color: var(--primary-black);
+        }
+
+        .size-option.selected {
+            background: var(--primary-black);
+            color: white;
+            border-color: var(--primary-black);
+        }
+        .actions {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .btn {
+            padding: 18px;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 14px;
+            letter-spacing: 1px;
+            cursor: pointer;
+            border: none;
+            transition: 0.3s;
+        }
+
+        .btn-cart {
+            background: white;
+            border: 1px solid var(--primary-black);
+            color: var(--primary-black);
+        }
+
+        .btn-cart:hover {
+            background: var(--light-gray);
+        }
+
+        .btn-buy {
+            background: var(--primary-black);
+            color: white;
+        }
+
+        .btn-buy:hover {
+            opacity: 0.9;
+        }
+
+        .shipping-note {
+            font-size: 13px;
+            color: #666;
+            margin-top: 20px;
+            text-align: center;
+        }
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="product-image">
+        <img src="pictures/chic beige blazer.png" alt="Chic Russet Bomber Jacket">
+    </div>
+
+    <div class="product-info">
+        <span class="category">Outerwear / Jackets</span>
+        <h1>Chic Russet Bomber Jacket</h1>
+        <div class="price">79,000 RWF</div>
+
+        <div class="description">
+            <p>A minimalist take on the classic bomber. This jacket features a lightweight synthetic shell with a subtle satin sheen, perfect for layering during cooler evenings. Designed with a ribbed collar and utility pocket for a modern street-wear edge.</p>
+        </div>
+
+        <span class="selector-label">SELECT SIZE</span>
+        <div class="size-grid">
+            <div class="size-option">S</div>
+            <div class="size-option">M</div>
+            <div class="size-option">L</div>
+            <div class="size-option">XL</div>
+        </div>
+
+        <div class="actions">
+            <button class="btn btn-cart">Add to Cart</button>
+            <button class="btn btn-buy">Buy It Now</button>
+        </div>
+
+        <div class="shipping-note">
+            Standard Delivery: 1-2 Business Days in Kigali. <br>
+            Secure payment via MoMo or Card.
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

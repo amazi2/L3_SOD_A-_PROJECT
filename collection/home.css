@@ -1,0 +1,218 @@
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Header & Nav */
+        header {
+            background: #0c0c0c;
+            color: #fff;
+            padding: 10px 5% ;
+            position: static;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-right: 25px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 85vh;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), 
+                        url('pictures/A LOGO of phil lucky(PL).jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 10%;
+            color: white;
+        }
+
+        .hero-content {
+            text-align: right;
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 65px;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+        }
+
+        .btn-shop {
+            padding: 15px 40px;
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-shop:hover {
+            background: white;
+            color: black;
+        }
+
+        /* New Arrivals Grid */
+        .section-title {
+            text-align: center;
+            margin: 60px 0 30px;
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            text-transform: uppercase;
+        }
+
+        .section-title span {
+            display: block;
+            font-size: 16px;
+            font-style: italic;
+            font-weight: 300;
+            text-transform: none;
+            color: #777;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 0 10%;
+            margin-bottom: 60px;
+        }
+         
+        .product-card {
+            background: #fff;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .product-card h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        .logo {
+            height: 40px;
+            width: auto;
+        }
+
+        .price {
+            font-weight: bold;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .btn-details {
+            width: 100%;
+            padding: 12px;
+            background: #000;
+            color: #fff;
+            border: none;
+            text-transform: uppercase;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        /* Mega Sale Section */
+        .mega-sale {
+            margin: 60px 10%;
+            background: #8b0000;
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .sale-box h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 50px;
+            letter-spacing: 10px;
+            margin-bottom: 10px;
+        }
+
+        .sale-box p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .btn-sale {
+            padding: 12px 35px;
+            background: white;
+            color: #8b0000;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* Footer info */
+        footer {
+            text-align: center;
+            padding: 40px;
+            background: #eee;
+            font-size: 12px;
+            color: #888;
+        }
+
+        /* Mobile View Optimization */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 40px; }
+            .nav-container { flex-direction: column; gap: 15px; }
+            nav ul li { margin: 0 10px; }
+        }
+    
