@@ -7,14 +7,21 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f5f2e7; /* cream */
-      color: #3e2723; /* dark chocolate */
+      background-color: #f5f2e7;
+      color: #3e2723;
       margin: 0;
       padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    main {
+      flex: 1;
     }
 
     .navbar {
-      background-color: #6d4c41; /* milk chocolate */
+      background-color: #6d4c41;
       padding: 10px;
       display: flex;
       justify-content: space-between;
@@ -45,6 +52,7 @@
 
     /* Banner adjustments */
     .banner {
+      background-color: #3e2723;
       position: absolute;
       top: 10px;
       left: 10px;
@@ -55,9 +63,6 @@
       height: auto;   /* keep proportions */
       object-fit: contain;
       display: block;
-      background-color: #3e2723; /* dark chocolate background */
-      padding: 8px;
-      border-radius: 6px;
     }
 
     .rooms {
@@ -66,18 +71,18 @@
       justify-content: space-around;
     }
 
-    .room img {
+    .rooms img {
       width: 250px;
       border-radius: 8px;
     }
 
     .booking {
       padding: 20px;
-      background-color: #d7ccc8; /* light mocha */
+      background-color: #d7ccc8;
     }
 
     button {
-      background-color: #8d6e63; /* mocha */
+      background-color: #8d6e63;
       color: white;
       border: none;
       padding: 10px;
@@ -86,7 +91,7 @@
     }
 
     button:hover {
-      background-color: #5d4037; /* dark cocoa */
+      background-color: #5d4037;
     }
 
     footer {
@@ -98,7 +103,6 @@
   </style>
 </head>
 <body>
-  <!-- Navigation Bar -->
   <nav class="navbar">
     <div class="logo">Hotel Luxe</div>
     <ul>
@@ -110,44 +114,40 @@
     </ul>
   </nav>
 
-  <!-- Banner -->
-  <header class="banner">
-    <img src="logo.png" alt="Hotel Banner">
-    <!-- Removed banner-text block -->
-  </header>
+  <main>
+    <header class="banner">
+      <img src="logo.png" alt="Hotel Banner">
+    </header>
 
-  <!-- Rooms Showcase -->
-  <section class="rooms">
-    <h2>Our Rooms</h2>
-    <div class="room">
-      <img src="deluse.png" alt="Deluxe Room">
-      <p>Deluxe Room - $120/night</p>
-    </div>
-    <div class="room">
-      <img src="lux.png" alt="Suite">
-      <p>Suite - $200/night</p>
-    </div>
-  </section>
+    <section class="rooms">
+      <div>
+        <img src="deluse.png" alt="Deluxe Room">
+        <p>Deluxe Room - $120/night</p>
+      </div>
+      <div>
+        <img src="pres.png" alt="Suite">
+        <p>Suite - $200/night</p>
+      </div>
+    </section>
 
-  <!-- Booking Section -->
-  <section class="booking">
-    <h2>Book Your Stay</h2>
-    <form>
-      <label>Check-in:</label>
-      <input type="date" required>
-      <label>Check-out:</label>
-      <input type="date" required>
-      <label>Room Type:</label>
-      <select>
-        <option>Deluxe</option>
-        <option>Suite</option>
-      </select>
-      <button type="submit">Confirm Booking</button>
-      <button type="button" onclick="window.print()">Print Booking</button>
-    </form>
-  </section>
+    <section class="booking">
+      <h2>Book Your Stay</h2>
+      <form>
+        <label>Check-in:</label>
+        <input type="date" required>
+        <label>Check-out:</label>
+        <input type="date" required>
+        <label>Room Type:</label>
+        <select>
+          <option>Deluxe</option>
+          <option>Suite</option>
+        </select>
+        <button type="submit">Confirm Booking</button>
+        <button type="button" onclick="window.print()">Print Booking</button>
+      </form>
+    </section>
+  </main>
 
-  <!-- Footer -->
   <footer>
     <p>&copy; 2026 Hotel Luxe. All rights reserved.</p>
   </footer>
